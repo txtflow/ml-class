@@ -6,6 +6,7 @@ function [theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters)
 % Initialize some useful values
 m = length(y); % number of training examples
 J_history = zeros(num_iters, 1);
+fuaturesNumber = length(theta);
 
 for iter = 1:num_iters
 
@@ -16,11 +17,17 @@ for iter = 1:num_iters
     % Hint: While debugging, it can be useful to print out the values
     %       of the cost function (computeCost) and gradient here.
     %
+    
+    tmp_theta =  zeros(fuaturesNumber, 1); 
+    const = alpha / m * (X * theta - y)';
+    
+    for f = 1:fuaturesNumber
+      tmp_theta(f) = theta(f)  - const * X(:, f);
+    end
+    
+    theta = tmp_theta;
 
-
-
-
-
+    
 
 
     % ============================================================
