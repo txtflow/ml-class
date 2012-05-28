@@ -11,7 +11,7 @@ mu = zeros(1, size(X, 2));
 sigma = zeros(1, size(X, 2));
 
 % ====================== YOUR CODE HERE ======================
-% Instructions: First, for each feature dimension, compute the mean
+% Instructions: First, for each feature dimension, compute the means
 %               of the feature and subtract it from the dataset,
 %               storing the mean value in mu. Next, compute the 
 %               standard deviation of each feature and divide
@@ -25,6 +25,10 @@ sigma = zeros(1, size(X, 2));
 %
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
+
+mu = mean(X)
+sigma = std(X)
+X_norm = (X - mu) ./ sigma;
 
 
 
